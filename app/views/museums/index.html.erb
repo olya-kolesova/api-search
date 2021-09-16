@@ -1,14 +1,16 @@
-<div class="container">
+<div class="container mt-5 mb-5">
+  <h3>Type your coordinates, please</h3>
+  <br>
   <%= simple_form_for [@museum] do |f| %>
     <%= f.input :longitude %>
     <%= f.input :latitude %>
-    <%= f.submit "Search", class: "btn-primary"  %>
+    <%= f.submit "Search", class: "btn-primary mt-3"  %>
   <% end %>
 
 </div>
-
 <div class="container">
-  <% @museums.each do |museum| %>
+  <% sorted = @museums.sort_by &:zip_code  %>
+  <% sorted.each do |museum| %>
     <li><%= museum.name %></li>
   <% end %>
 </div>
