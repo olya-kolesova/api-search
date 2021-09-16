@@ -1,0 +1,14 @@
+<div class="container">
+  <%= simple_form_for [@museum] do |f| %>
+    <%= f.input :longitude %>
+    <%= f.input :latitude %>
+    <%= f.submit "Search", class: "btn-primary"  %>
+  <% end %>
+
+</div>
+
+<div class="container">
+  <% @museums.each do |museum| %>
+    <li><%= museum.name %></li>
+  <% end %>
+</div>
